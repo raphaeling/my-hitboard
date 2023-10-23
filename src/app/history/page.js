@@ -17,7 +17,9 @@ export default function HistoryHome() {
     }
     if (clicks === 1) {
       // Clear all localStorage
-      localStorage.setItem('myhitboardCharts', null);
+      if (typeof window !== 'undefined') {
+        localStorage.setItem('myhitboardCharts', null);
+      }
       setButtonText('Clear charts');
       setClicks(0);
     }
