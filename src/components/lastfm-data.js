@@ -55,8 +55,8 @@ export default function LastfmData({ username, apiKey }) {
   }
 
   const top10 = getSongDetailsFromLfmData();
-  console.log('this is top 10');
-  console.log(top10);
+  // console.log('this is top 10');
+  // console.log(top10);
   // const top10 = [{rank:1, songName:'silly', artistName:'troye'}];
 
   return (
