@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 
-
 // Calls route to last.fm API endpoint to securely fetch data with the API key
 // from the server side. Returns an object with either an error property,
 // a list of the ten songs, or an empty list 
@@ -18,7 +17,7 @@ export function useLastfmFetch(username) {
           setLoading(false);
         }
         else if (response.status === 500) {
-          throw new Error('This username does not exist.');
+          throw new Error('Username not found');
         }
         else {
           throw new Error('An error with the last.fm API route occurred.');

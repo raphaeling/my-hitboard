@@ -1,9 +1,9 @@
 'use client';
 
 import { useLastfmFetch } from '@/services/useLastfmFetch';
-// import { useState, useEffect } from 'react';
 
 export default function LastfmData({ username }) {
+  // Uses a custom hook to modularize the fetching process
   const { lfmData, loading } = useLastfmFetch(username);
 
   // Renders an ordered list of song objects, if no errors in API fetching
@@ -27,6 +27,15 @@ export default function LastfmData({ username }) {
       return (
         <div>
           <p>{error}</p>
+        </div>
+      );
+    }
+
+    // Not enough songs to populate the chart
+    if (track.length < 10) {
+      return (
+        <div>
+          <p>Not enough songs from the week :(</p>
         </div>
       );
     }
