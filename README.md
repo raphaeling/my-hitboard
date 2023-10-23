@@ -1,4 +1,4 @@
-[myhitboard](https://myhitboard.vercel.app) is a work-in-progress web application that gives you your own weekly top 10 last.fm (and Spotify in the future) streams with chart updates!
+[myhitboard](https://myhitboard.vercel.app) is a work-in-progress web application that gives you your own weekly top 10 last.fm (and Spotify monthly) song rankings with charts stored in your browser for future reference! Other features such as chart comparisons coming soon :)
 
 ## Getting Started
 
