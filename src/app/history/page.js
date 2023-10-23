@@ -5,7 +5,7 @@ import { useState } from 'react';
 
 export default function HistoryHome() {
   // const fakeCharts = [{'datetime':'today','top10':[{'songName':'b', 'artistName': 'eyonce'},{'songName':'c', 'artistName': 'arly'}]},{'datetime':'yesterday','top10':[{'songName':'d', 'artistName': 'idi'},{'songName':'a', 'artistName': 'dele'}]}];
-  const charts = JSON.parse(localStorage.getItem('myhitboardCharts'));
+  const charts = JSON.parse(window?.localStorage?.getItem('myhitboardCharts'));
   
   const [clicks, setClicks] = useState(0);
   const [buttonText, setButtonText] = useState('Clear charts');
