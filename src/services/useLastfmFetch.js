@@ -13,19 +13,18 @@ export function useLastfmFetch(username) {
       try {
         const response = await fetch(`/api/lastfm?username=${username}`);
         if (response.ok) {
-          console.log('hii ok', response);
           const data = await response.json();
           setLfmData(data);
           setLoading(false);
         }
         else if (response.status === 500) {
-          throw new Error('This');
+          throw new Error('This username does not exist.');
         }
         else {
-          throw new Error('error');
+          throw new Error('An error with the last.fm API route occurred.');
         }
       } catch (error) {
-        setLfmData({ error: 'An error with the last.fm API route occurred'});
+        setLfmData({ error: error.message });
       }
     }
     fetchSongData();

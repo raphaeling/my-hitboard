@@ -17,7 +17,6 @@ export default function LastfmFlow() {
     <div className='flex flex-col items-center'>
       <LastFmForm onSubmit={handleSubmit}/>
       <div className={`${chartHidden ? 'invisible' : ''}`}>
-        <h2>Top 10:</h2>
         <LastfmData username={username} />
       </div>
     </div>

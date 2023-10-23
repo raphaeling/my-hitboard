@@ -28,6 +28,10 @@ export async function GET(request) {
         }
       );
     }
+    else if (res === 6) {
+      console.log('USER!');
+      throw new Error('User not found');
+    }
     else {
       throw new Error('Error');
     }

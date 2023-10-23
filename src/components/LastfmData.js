@@ -4,31 +4,7 @@ import { useLastfmFetch } from '@/services/useLastfmFetch';
 // import { useState, useEffect } from 'react';
 
 export default function LastfmData({ username }) {
-  // const [lfmData, setLfmData] = useState({});
-  // // Calls the Lastfm API route to securely fetch data with the API key
-  // // from the server side
-
-  // // TODO: Fix error popping up before data fully loads
-  // useEffect(() => {
-  //   async function fetchSongData() {
-  //     try {
-  //       const response = await fetch(`/api/lastfm?username=${username}`);
-  //       if (response.ok) {
-  //         const data = await response.json();
-  //         setLfmData(data);
-  //       }
-  //       else {
-  //         throw new Error('error');
-  //       }
-  //     } catch (error) {
-  //       setLfmData({ error: 'An error with the last.fm API route occurred'});
-  //     }
-  //   }
-  //   fetchSongData();
-  // }, [username]);
-
   const { lfmData, loading } = useLastfmFetch(username);
-  // console.log(lfmData);
 
   // Renders an ordered list of song objects, if no errors in API fetching
   // If there are, return the error message in a div
@@ -67,7 +43,8 @@ export default function LastfmData({ username }) {
 
     // TODO: Add 
     return (
-      <div>
+      <div className='min-w-md max-w-md items-center'>
+        <h2 className='mx-auto text-center font-bold'>Top 10:</h2>
         <ol>
           {top10.map((songObj, index) => (
             <li key={index}>

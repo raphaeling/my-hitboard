@@ -10,6 +10,11 @@ export default function LastfmForm({ onSubmit }) {
     onSubmit(username);
   }
 
+  function handleChange(e) {
+    e.preventDefault();
+    setUsername(e.target.value);
+  }
+
   return (
     <div className='w-full max-w-xs'>
       <form
@@ -25,14 +30,15 @@ export default function LastfmForm({ onSubmit }) {
             type='text'
             placeholder='Ex. turntablesturn'
             value={username}
-            onChange={(e) => setUsername(e.target.value)}
+            onChange={handleChange}
             className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' 
           />
         </div>
         <div className='flex items-center justify-between'>
           <button
+            disabled={!username}
             type='submit'
-            className='mx-auto bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline'>
+            className='mx-auto bg-red-500 hover:bg-red-700 disabled:bg-red-300 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline'>
             See Top 10
           </button>
         </div>
