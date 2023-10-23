@@ -1,3 +1,5 @@
+'use client';
+
 // Takes a top10 object {[{songName, artistName} * 10]}
 // and adds it to stringified localStorage property myhitboardCharts
 // When parsed, myhitboardCharts's object shape is:
