@@ -1,4 +1,4 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+[myhitboard](myhitboard.vercel.app) is a work-in-progress web application that gives you your own weekly top 10 last.fm (and Spotify in the future) streams with chart updates!
 
 ## Getting Started
 
