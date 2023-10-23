@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 
 // Calls route to last.fm API endpoint to securely fetch data with the API key
 // from the server side. Returns an object with either an error property,
-// a list of the ten songs, or an empty list 
+// an array  of the ten song objects, or an empty array 
 export function useLastfmFetch(username) {
   const [lfmData, setLfmData] = useState({});
   const [loading, setLoading] = useState(true);
@@ -29,5 +29,5 @@ export function useLastfmFetch(username) {
     fetchSongData();
   }, [username]);
 
-  return { lfmData, loading };
+  return { lfmData, loading }; 
 }

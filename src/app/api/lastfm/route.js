@@ -1,4 +1,4 @@
-// This API route is to protect the API keys from being
+// This API route serverless function protects the API keys from being
 // exposed to the browser by guaranteeing server-side calling
 
 export async function GET(request) {
@@ -29,7 +29,6 @@ export async function GET(request) {
       );
     }
     else if (res === 6) {
-      console.log('USER!');
       throw new Error('User not found');
     }
     else {

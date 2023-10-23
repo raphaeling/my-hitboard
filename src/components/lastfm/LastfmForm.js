@@ -37,7 +37,7 @@ export default function LastfmForm({ onSubmit }) {
             onChange={handleChange}
             className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' 
           />
-          <span class='flex items-center font-medium text-red-500 text-xs mt-2 ml-1'>
+          <span className='flex items-center font-medium text-red-500 text-xs mt-2 ml-1'>
 			      {inputError}
 		      </span>
         </div>
