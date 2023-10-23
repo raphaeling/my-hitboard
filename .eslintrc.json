@@ -1,3 +1,31 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": "next/core-web-vitals",
+  "rules": {
+    // Always add a trailing new line to the end of a file (clean diffs)
+    "eol-last": [ "error", "unix" ],
+
+    // Some basic rules to guarantee functionality
+    "no-unused-vars": "error",
+
+    // 2 space indentation
+    "indent": [ "error", 2, { "SwitchCase": 1 }],
+
+    // Always use single quotes except to escape.
+    "quotes": ["error", "single", { "avoidEscape": true, "allowTemplateLiterals": true }],
+    "jsx-quotes": ["error", "prefer-single"],
+
+    // Syntax uniformity
+    "semi": [ "error", "always" ],
+    "comma-dangle": [ "error", "always-multiline" ],
+
+    // Max line lengths
+    "max-len": ["error", {
+      "code": 120,
+      "ignoreUrls": true,
+      "ignoreStrings": true,
+      "ignoreTemplateLiterals": true,
+      "ignoreComments": true,
+      "ignoreRegExpLiterals": true
+    }]
+  }
 }
