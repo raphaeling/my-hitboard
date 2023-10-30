@@ -9,7 +9,7 @@ export default function Home() {
   const responseType = 'code';
   const scope = 'user-top-read';
   // TODO: Add state
-  const spotifyUrl = `${authEndpoint}?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=${responseType}&scope=${scope}`;
+  const spotifyUrl = `${authEndpoint}?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=${responseType}&scope=${scope}&show_dialog=true`;
 
   return (
     <main className='flex max-h-full flex-col items-center justify-center p-24'>
