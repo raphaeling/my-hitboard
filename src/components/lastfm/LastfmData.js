@@ -49,15 +49,6 @@ export default function LastfmData({ username, addToHistoryHandler, chartAddable
       });
     });
 
-    // // Adds top10 chart to storage
-    // function handleClick() {
-    //   addChartToStorage(top10);
-    //   setAdded('Added!');
-    //   setC
-    // }
-
-    console.log(!top10, chartAddable);
-
     return (
       <div className='min-w-md max-w-md items-center'>
         <h2 className='mx-auto text-center font-bold'>Top 10:</h2>
