@@ -33,6 +33,8 @@ export default function LastfmForm({ onSubmit }) {
           <input
             type='text'
             placeholder='Ex. turntablesturn'
+            /* username_or_email is last.fm's input name, for autofill convenience */
+            name='username_or_email'
             value={username}
             onChange={handleChange}
             className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' 

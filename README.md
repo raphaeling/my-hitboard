@@ -3,7 +3,7 @@
 [myhitboard](https://myhitboard.vercel.app) is a work-in-progress web application that gives you your own weekly top 10 last\.fm and Spotify streams with chart updates!
 
 ### Future/to-do features
- - [ ] "Empty history" UI if no charts are saved
+ - [x] "Empty history" UI if no charts are saved
  - [ ] Compare charts with past charts (No button for the last chart!)
  - [ ] Separate Spotify and last\.fm charts, to make it clear that they track different time ranges (Spotify 1 month; last\.fm 1 week)
     - Perhaps, just grab 1 month's worth for consistency. I'll keep brainstorming potential use cases!
