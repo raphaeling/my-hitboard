@@ -1,18 +1,26 @@
 'use client';
 
-import HistoryChartCard from '@/components/history/HistoryChartCard';
+import HistoryChartContainer from '@/components/history/HistoryChartContainer';
 import Link from 'next/link';
 import { useState } from 'react';
+import { deleteChartFromStorage } from '@/services/deleteChartFromStorage';
 
 export default function HistoryHome() {
-  const charts = (typeof window !== 'undefined') ? JSON.parse(window?.localStorage?.getItem('myhitboardCharts')) : null;
-  
   const [clicks, setClicks] = useState(0);
-  const [buttonText, setButtonText] = useState('Clear charts');
+  const [clearChartButtonText, setClearChartButtonText] = useState('Clear charts');
+  const initialCharts = (typeof window !== 'undefined') ? JSON.parse(window?.localStorage?.getItem('myhitboardCharts')) : null;
+  const [charts, setCharts] = useState(initialCharts);
 
-  function handleClick() {
+  function handleDeleteCard(index) {
+    deleteChartFromStorage(index);
+    // Re-render charts
+    const newCharts = (typeof window !== 'undefined') ? JSON.parse(window?.localStorage?.getItem('myhitboardCharts')) : null;
+    setCharts(newCharts);
+  }
+
+  function handleClearCharts() {
     if (clicks === 0) {
-      setButtonText('Are you sure? It\'s permanent!');
+      setClearChartButtonText('Are you sure? It\'s permanent!');
       setClicks(clicks+1);
     }
     if (clicks === 1) {
@@ -20,7 +28,11 @@ export default function HistoryHome() {
       if (typeof window !== 'undefined') {
         localStorage.setItem('myhitboardCharts', null);
       }
-      setButtonText('Clear charts');
+      // Re-render charts
+      const newCharts = (typeof window !== 'undefined') ? JSON.parse(window?.localStorage?.getItem('myhitboardCharts')) : null;
+      setCharts(newCharts);
+      // Restart button
+      setClearChartButtonText('Clear charts');
       setClicks(0);
     }
   }
@@ -34,23 +46,11 @@ export default function HistoryHome() {
       </Link>
       <h2 className='text-2xl font-bold'>history</h2>
       <button
-        onClick={handleClick}
-        className={`text-white text-sm py-1 px-3 rounded-lg focus:outline-none focus:shadow-outline mt-8 ${clicks === 1 ? 'bg-red-500 hover:bg-red-700' : 'bg-slate-500 hover:bg-slate-700' }`}>
-        {buttonText}
+        onClick={handleClearCharts}
+        className={`text-white text-sm py-1 px-3 rounded-lg focus:outline-none focus:shadow-outline mt-4 ${clicks === 1 ? 'bg-red-500 hover:bg-red-700' : 'bg-slate-500 hover:bg-slate-700' }`}>
+        {clearChartButtonText}
       </button>
-      <div className='flex flex-wrap bg-slate-100 w-full my-10 p-10 rounded-xl justify-center'>
-        {charts ? (
-          charts.map((dateChartPair, index) => {
-            return (
-              <HistoryChartCard key={index} dateChartPair={dateChartPair} />
-            );
-          })
-        ) : (
-          <div className='text-slate-300'>
-            {'No charts saved :('}
-          </div>
-        )}
-      </div>
+      <HistoryChartContainer charts={charts} onCardDelete={handleDeleteCard} />
     </main>
   );
 }

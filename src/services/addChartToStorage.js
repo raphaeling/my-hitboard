@@ -3,7 +3,7 @@
 // Takes a top10 object {[{songName, artistName} * 10]}
 // and adds it to stringified localStorage property myhitboardCharts
 // When parsed, myhitboardCharts's object shape is:
-//    [{<date>: [{songName, artistName}]}]
+//    [{datetime: <string>, top10: [{songName: <string>, artistName: <string>}]}]
 
 export function addChartToStorage(top10) {
   const storedCharts = JSON.parse(localStorage.getItem('myhitboardCharts'));
