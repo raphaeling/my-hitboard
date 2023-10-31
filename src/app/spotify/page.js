@@ -4,7 +4,11 @@ import Link from 'next/link';
 import { Suspense, Fragment } from 'react';
 
 function SpotifyDataFallback() {
-  return <Fragment/>;
+  return (
+    <Fragment>
+      Loading...
+    </Fragment>
+  );
 }
 
 export default function SpotifyHome() {
