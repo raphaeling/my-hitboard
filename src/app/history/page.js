@@ -1,10 +1,10 @@
 'use client';
 
+import HistoryChartCard from '@/components/history/HistoryChartCard';
 import Link from 'next/link';
 import { useState } from 'react';
 
 export default function HistoryHome() {
-  // const fakeCharts = [{'datetime':'today','top10':[{'songName':'b', 'artistName': 'eyonce'},{'songName':'c', 'artistName': 'arly'}]},{'datetime':'yesterday','top10':[{'songName':'d', 'artistName': 'idi'},{'songName':'a', 'artistName': 'dele'}]}];
   const charts = (typeof window !== 'undefined') ? JSON.parse(window?.localStorage?.getItem('myhitboardCharts')) : null;
   
   const [clicks, setClicks] = useState(0);
@@ -39,23 +39,17 @@ export default function HistoryHome() {
         {buttonText}
       </button>
       <div className='flex flex-wrap bg-slate-100 w-full my-10 p-10 rounded-xl justify-center'>
-        {charts ? charts.map((dateChartPair, index) => {
-          return (
-            <div key={index} className='bg-slate-200 p-3 m-3 rounded-lg w-96'>
-              <h1 className='font-bold'>{dateChartPair.datetime}</h1>
-              <ol>
-                {dateChartPair.top10.map((songObj, index) => {
-                  return (
-                    <li key={index}>
-                      {index + 1}: {songObj.songName} - {songObj.artistName}
-                    </li>
-                  );
-                })}
-              </ol>
-            </div>
-          );
-        }) : <></>
-        }
+        {charts ? (
+          charts.map((dateChartPair, index) => {
+            return (
+              <HistoryChartCard key={index} dateChartPair={dateChartPair} />
+            );
+          })
+        ) : (
+          <div className='text-slate-300'>
+            {'No charts saved :('}
+          </div>
+        )}
       </div>
     </main>
   );
