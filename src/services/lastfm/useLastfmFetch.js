@@ -26,7 +26,9 @@ export function useLastfmFetch(username) {
         setLfmData({ error: error.message });
       }
     }
-    fetchSongData();
+    if (username) {
+      fetchSongData();
+    }
   }, [username]);
 
   return { lfmData, loading }; 

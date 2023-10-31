@@ -40,7 +40,7 @@ export default function SpotifyData() {
     };
     
     getSongsFromToken();
-  }, [code]);
+  }, []);
 
   // Grab only the song and artist from the songs
   const top10 = songList.map(song => {
