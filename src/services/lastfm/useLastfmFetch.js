@@ -1,3 +1,5 @@
+'use client';
+
 import { useState, useEffect } from 'react';
 
 // Calls route to last.fm API endpoint to securely fetch data with the API key

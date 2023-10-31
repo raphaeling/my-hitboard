@@ -38,7 +38,7 @@ export default function HistoryHome() {
         className={`text-white text-sm py-1 px-3 rounded-lg focus:outline-none focus:shadow-outline mt-8 ${clicks === 1 ? 'bg-red-500 hover:bg-red-700' : 'bg-slate-500 hover:bg-slate-700' }`}>
         {buttonText}
       </button>
-      <div className='flex flex-wrap bg-slate-100 w-full mt-10 p-10 rounded-xl justify-start'>
+      <div className='flex flex-wrap bg-slate-100 w-full my-10 p-10 rounded-xl justify-center'>
         {charts ? charts.map((dateChartPair, index) => {
           return (
             <div key={index} className='bg-slate-200 p-3 m-3 rounded-lg w-96'>

@@ -11,7 +11,6 @@
  - Delete individual charts rather than clearing the whole storage
  - Cloud storage of charts (with login)
 
-
 ## Getting Started
 
 First, run the development server:

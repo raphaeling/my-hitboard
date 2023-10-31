@@ -1,13 +1,10 @@
 'use client';
 
-import { addChartToStorage } from '@/services/addChartToStorage';
 import { useLastfmFetch } from '@/services/lastfm/useLastfmFetch';
-import { useState } from 'react';
 
-export default function LastfmData({ username }) {
+export default function LastfmData({ username, addToHistoryHandler, chartAddable }) {
   // Uses a custom hook to modularize the fetching process
   const { lfmData, loading } = useLastfmFetch(username);
-  const [ added, setAdded ] = useState('');
 
   // Renders an ordered list of song objects, if no errors in API fetching
   // If there are, return the error message in a div
@@ -52,12 +49,6 @@ export default function LastfmData({ username }) {
       });
     });
 
-    // Adds top10 chart to storage
-    function handleClick() {
-      addChartToStorage(top10);
-      setAdded('Added!');
-    }
-
     return (
       <div className='min-w-md max-w-md items-center'>
         <h2 className='mx-auto text-center font-bold'>Top 10:</h2>
@@ -70,13 +61,13 @@ export default function LastfmData({ username }) {
         </ol>
         <div className='flex'>
           <button
-            disabled={!top10 || added}
-            onClick={handleClick}
+            disabled={!top10 || !chartAddable}
+            onClick={() => addToHistoryHandler(top10)}
             className='mt-4 disabled:bg-slate-300 text-white bg-slate-500 hover:bg-slate-700 py-2 px-4 rounded-lg focus:outline-none focus:shadow-outline'>
             Add chart to history
           </button>
           <span className='text-sm font-medium mx-2 mt-6'>
-            {added}
+            {chartAddable ? '' : 'Added!'}
           </span>
         </div>
       </div>
