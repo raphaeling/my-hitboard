@@ -13,6 +13,7 @@
     - Perhaps, just grab 1 month's worth for consistency. I'll keep brainstorming potential use cases!
  - [ ] Cloud storage of charts (with login)
  - [ ] A logo 🙊
+ - [ ] Add everything here to the Github issues tab 😆
 
 ## Getting Started
 
