@@ -8,7 +8,7 @@
 export function addChartToStorage(top10) {
   const storedCharts = JSON.parse(localStorage.getItem('myhitboardCharts'));
   const d = new Date();
-  const minutesWithLeadingZero = (date.getMinutes() < 10 ? '0' : '') + date.getMinutes();
+  const minutesWithLeadingZero = (d.getMinutes() < 10 ? '0' : '') + d.getMinutes();
   const datetime = `${d.toLocaleString('default', { month: 'long' })} ${d.getDate()}, ${d.getFullYear()} ${d.getHours()}:${minutesWithLeadingZero}`;
 
   if (!storedCharts) {

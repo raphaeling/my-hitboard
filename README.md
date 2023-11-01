@@ -5,9 +5,9 @@
 ### Future/to-do features
  - [x] "Empty history" UI if no charts are saved
  - [x] Delete individual charts rather than clearing the whole storage
- - [ ] Fix single-digit minutes to have a leading zero (e.g. 10:02 instead of 10:2)
- - [ ] Refactor `history/page.js` to modularize chart handling to a new component
+ - [x] Fix single-digit minutes to have a leading zero (e.g. 10:02 instead of 10:2)
  - [ ] Combine all `localStorage` functions in one file
+ - [ ] Refactor `history/page.js` to modularize chart handling to a new component
  - [ ] Compare charts with past charts (No button for the last chart!)
  - [ ] Separate Spotify and last\.fm charts, to make it clear that they track different time ranges (Spotify 1 month; last\.fm 1 week)
     - Perhaps, just grab 1 month's worth for consistency. I'll keep brainstorming potential use cases!
